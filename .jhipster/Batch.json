@@ -34,38 +34,13 @@
             "fieldType": "LocalDate"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "uploadedFile",
-            "otherEntityName": "uploadedFile",
-            "otherEntityRelationshipName": "batch"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "invalidationRule",
-            "otherEntityName": "invalidationRule",
-            "otherEntityRelationshipName": "batch"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "user",
-            "otherEntityName": "user",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "technology",
-            "otherEntityName": "recordingTechnology",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180915031114",
     "entityTableName": "batch",
     "dto": "no",
-    "pagination": "infinite-scroll",
-    "service": "serviceClass",
-    "jpaMetamodelFiltering": true,
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

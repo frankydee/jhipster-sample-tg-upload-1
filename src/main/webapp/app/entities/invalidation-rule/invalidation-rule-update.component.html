@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-invalidation-rule-heading">Create or edit a Invalidation Rule</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!invalidationRule.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="invalidationRule.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_elr">Elr</label>
+                    <input type="text" class="form-control" name="elr" id="field_elr"
+                        [(ngModel)]="invalidationRule.elr" required maxlength="4"/>
+                    <div [hidden]="!(editForm.controls.elr?.dirty && editForm.controls.elr?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.elr?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.elr?.errors?.maxlength">
+                        This field cannot be longer than 4 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_trackId">Track Id</label>
+                    <input type="text" class="form-control" name="trackId" id="field_trackId"
+                        [(ngModel)]="invalidationRule.trackId" required maxlength="4"/>
+                    <div [hidden]="!(editForm.controls.trackId?.dirty && editForm.controls.trackId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.trackId?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.trackId?.errors?.maxlength">
+                        This field cannot be longer than 4 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_startMileage">Start Mileage</label>
+                    <input type="number" class="form-control" name="startMileage" id="field_startMileage"
+                        [(ngModel)]="invalidationRule.startMileage" required/>
+                    <div [hidden]="!(editForm.controls.startMileage?.dirty && editForm.controls.startMileage?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startMileage?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.startMileage?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_endMileage">End Mileage</label>
+                    <input type="number" class="form-control" name="endMileage" id="field_endMileage"
+                        [(ngModel)]="invalidationRule.endMileage" required/>
+                    <div [hidden]="!(editForm.controls.endMileage?.dirty && editForm.controls.endMileage?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endMileage?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.endMileage?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comment">Comment</label>
+                    <input type="text" class="form-control" name="comment" id="field_comment"
+                        [(ngModel)]="invalidationRule.comment" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.comment?.dirty && editForm.controls.comment?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.comment?.errors?.maxlength">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createDate">Create Date</label>
+                    <div class="input-group">
+                        <input id="field_createDate" type="text" class="form-control" name="createDate" ngbDatepicker  #createDateDp="ngbDatepicker" [(ngModel)]="invalidationRule.createDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updatedDate">Updated Date</label>
+                    <div class="input-group">
+                        <input id="field_updatedDate" type="text" class="form-control" name="updatedDate" ngbDatepicker  #updatedDateDp="ngbDatepicker" [(ngModel)]="invalidationRule.updatedDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="updatedDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uploadedFile">
+            <h2><span>Uploaded File</span> {{uploadedFile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>File Name</span></dt>
+                <dd>
+                    <span>{{uploadedFile.fileName}}</span>
+                </dd>
+                <dt><span>File Type</span></dt>
+                <dd>
+                    <span>{{uploadedFile.fileType}}</span>
+                </dd>
+                <dt><span>Uploaded Date</span></dt>
+                <dd>
+                    <span>{{uploadedFile.uploadedDate}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{uploadedFile.status}}</span>
+                </dd>
+                <dt><span>Comnment</span></dt>
+                <dd>
+                    <span>{{uploadedFile.comnment}}</span>
+                </dd>
+                <dt><span>Submitted Date</span></dt>
+                <dd>
+                    <span>{{uploadedFile.submittedDate}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/uploaded-file', uploadedFile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
