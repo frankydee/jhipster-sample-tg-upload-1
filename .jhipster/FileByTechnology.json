@@ -1,0 +1,54 @@
+{
+    "name": "FileByTechnology",
+    "fields": [
+        {
+            "fieldName": "overridingPattern",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sortOrder",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "required",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "updatedDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "fileType",
+            "otherEntityName": "fileType",
+            "otherEntityRelationshipName": ""
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "technology",
+            "otherEntityName": "recordingTechnology",
+            "otherEntityRelationshipName": ""
+        }
+    ],
+    "changelogDate": "20180915031112",
+    "entityTableName": "file_type_by_tech",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

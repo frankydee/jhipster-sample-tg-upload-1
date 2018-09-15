@@ -1,0 +1,53 @@
+{
+    "name": "UploadedFile",
+    "fields": [
+        {
+            "fieldName": "fileName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fileType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uploadedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "FileStatus",
+            "fieldValues": "UPLOADED,VALIDATING,VALIDATED,ERROR,SUBMITTED"
+        },
+        {
+            "fieldName": "comnment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "submittedDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fileType",
+            "otherEntityName": "fileType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "batch",
+            "otherEntityName": "batch",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180915031115",
+    "entityTableName": "uploaded_file",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
