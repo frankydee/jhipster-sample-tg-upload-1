@@ -17,10 +17,10 @@ entity FileByTechnology (FILE_TYPE_BY_TECH) {
 }
 
 
-//relationship ManyToOne { 
-//	FileType to FileByTechnology{fileType(name) required}
-//    RecordingTechnology to FileByTechnology{technology(name) required}
-//}
+relationship ManyToOne { 
+	FileByTechnology{fileType(name)}  to FileType
+    FileByTechnology{technology(name)}  to RecordingTechnology 
+}
 
 entity FileType (FILE_TYPE) {
 	name String required
