@@ -26,7 +26,20 @@
             "fieldType": "LocalDate"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fileType",
+            "otherEntityName": "fileType",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "technology",
+            "otherEntityName": "recordingTechnology",
+            "otherEntityField": "name"
+        }
+    ],
     "changelogDate": "20180915031112",
     "entityTableName": "file_type_by_tech",
     "dto": "no",
