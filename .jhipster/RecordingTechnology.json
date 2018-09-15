@@ -25,17 +25,13 @@
             "fieldType": "LocalDate"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "many-to-one"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180915031111",
     "entityTableName": "recording_tech",
     "dto": "no",
     "pagination": "no",
-    "service": "serviceClass",
-    "jpaMetamodelFiltering": true,
+    "service": "no",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

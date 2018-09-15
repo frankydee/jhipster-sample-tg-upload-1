@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span>Recording Technologies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recording-technology" [routerLink]="['/recording-technology/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Recording Technology
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="recordingTechnologies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Sort Order</span></th>
+            <th><span>Active</span></th>
+            <th><span>Create Date</span></th>
+            <th><span>Updated Date</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let recordingTechnology of recordingTechnologies ;trackBy: trackId">
+                <td><a [routerLink]="['/recording-technology', recordingTechnology.id, 'view' ]">{{recordingTechnology.id}}</a></td>
+                <td>{{recordingTechnology.name}}</td>
+                <td>{{recordingTechnology.sortOrder}}</td>
+                <td>{{recordingTechnology.active}}</td>
+                <td>{{recordingTechnology.createDate | date:'mediumDate'}}</td>
+                <td>{{recordingTechnology.updatedDate | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/recording-technology', recordingTechnology.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/recording-technology', recordingTechnology.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'recording-technology/'+ recordingTechnology.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
