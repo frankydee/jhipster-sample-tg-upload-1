@@ -1,0 +1,7 @@
+entity RecordingTechnology (RECORDING_TECH) {
+	name String required
+    sortOrder Integer 
+    active Boolean
+    createDate LocalDate
+    updatedDate LocalDate
+}
