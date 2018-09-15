@@ -1,0 +1,156 @@
+entity RecordingTechnology (RECORDING_TECH) {
+	name String required
+    sortOrder Integer 
+    active Boolean
+    createDate LocalDate
+    updatedDate LocalDate
+}
+
+
+entity FileByTechnology (FILE_TYPE_BY_TECH) {
+    overridingPattern String,
+    sortOrder Integer,
+    required Boolean,
+    active Boolean,
+    createDate LocalDate,
+    updatedDate LocalDate
+}
+
+relationship ManyToOne { 
+	FileType to FileByTechnology{fileType(name) required}
+    RecordingTechnology to FileByTechnology{technology(name) required}
+}
+
+entity FileType (FILE_TYPE) {
+	name String required
+    description String
+    defaultPattern String
+    active Boolean required
+    createDate LocalDate
+    updatedDate LocalDate
+}
+
+
+entity Batch {
+	initiatedDate LocalDate
+    username String required
+    comment String
+    trainIdentifier String //not sure I should keep this
+    journey String //not sure I should keep this
+    status BatchStatus
+    modifiedDate LocalDate
+}
+
+relationship ManyToOne {
+	Batch{user} to User
+    Batch{technology} to RecordingTechnology
+  }
+
+enum BatchStatus {
+	OPEN,
+    ERROR,
+    SUBMITTED,
+    CANCELLED
+}
+
+relationship OneToMany {
+    Batch to UploadedFile
+    Batch to InvalidationRule
+}
+
+
+entity UploadedFile {
+	fileName String
+    fileType String
+    uploadedDate Instant
+    status FileStatus
+    comnment String
+    submittedDate Instant
+}
+
+relationship ManyToOne {
+	UploadedFile to FileType
+}
+
+enum FileStatus {
+	UPLOADED,
+    VALIDATING,
+    VALIDATED,
+    ERROR,
+    SUBMITTED
+}
+
+entity InvalidationRule {
+	elr String maxlength (4) required //pattern(/^[a-zA-Z]{3}([0-9])?$)
+    trackId String maxlength (4) required
+    startMileage Integer required
+    endMileage Integer required
+    comment String maxlength (1000)
+    createDate LocalDate
+    updatedDate LocalDate
+}
+
+entity InvalidationCode {
+	code Integer
+    shortDescription String 
+    longDescription String
+    active Boolean
+    createDate LocalDate
+    updatedDate LocalDate
+}
+
+relationship OneToMany {
+    InvalidationRule to InvalidationCode
+   }
+
+
+/**
+ * The User entity.
+ */
+entity User {
+	/**
+	* The Windows AD username
+	*/
+	username String required,
+    firstName String,
+	lastName String,
+	email String
+    createDate LocalDate
+    updatedDate LocalDate
+    role UserRole
+}
+
+enum UserRole {
+	ADMIN,
+    USER
+}
+
+
+paginate Batch with infinite-scroll
+paginate InvalidationRule with infinite-scroll
+paginate FileType with pager
+
+//Set service options to all except few
+service Batch with serviceClass
+service UploadedFile with serviceClass
+service InvalidationRule with serviceClass
+
+filter *
+
+#arrowSize: 0.6
+#bendSize: 0.3
+#direction: down
+#gutter: 5
+#edgeMargin: 0
+#edges: rounded
+//#fill: #eee8d5; #fdf6e3
+#fillArrows: true
+//#font: Calibri
+//#fontSize: 12
+#leading: 1.25
+//#lineWidth: 3
+//#padding: 8
+#spacing: 30
+//#stroke: #33322E
+//#title: filename
+//#zoom: 1
