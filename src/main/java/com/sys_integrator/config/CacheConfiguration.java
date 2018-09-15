@@ -42,6 +42,12 @@ public class CacheConfiguration {
             cm.createCache(com.sys_integrator.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.sys_integrator.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.sys_integrator.domain.RecordingTechnology.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sys_integrator.domain.FileByTechnology.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sys_integrator.domain.FileType.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sys_integrator.domain.Batch.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sys_integrator.domain.UploadedFile.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sys_integrator.domain.InvalidationRule.class.getName(), jcacheConfiguration);
+            cm.createCache(com.sys_integrator.domain.InvalidationCode.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

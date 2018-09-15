@@ -27,26 +27,13 @@
             "fieldType": "Instant"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "fileType",
-            "otherEntityName": "fileType",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "batch",
-            "otherEntityName": "batch",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180915031115",
     "entityTableName": "uploaded_file",
     "dto": "no",
     "pagination": "no",
-    "service": "serviceClass",
-    "jpaMetamodelFiltering": true,
+    "service": "no",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

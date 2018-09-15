@@ -32,23 +32,13 @@
             "fieldType": "LocalDate"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "many-to-one"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "uploadedFile",
-            "otherEntityName": "uploadedFile",
-            "otherEntityRelationshipName": "fileType"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180915031113",
     "entityTableName": "file_type",
     "dto": "no",
-    "pagination": "pager",
-    "service": "serviceClass",
-    "jpaMetamodelFiltering": true,
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

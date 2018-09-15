@@ -16,10 +16,11 @@ entity FileByTechnology (FILE_TYPE_BY_TECH) {
     updatedDate LocalDate
 }
 
-relationship ManyToOne { 
-	FileType to FileByTechnology{fileType(name) required}
-    RecordingTechnology to FileByTechnology{technology(name) required}
-}
+
+//relationship ManyToOne { 
+//	FileType to FileByTechnology{fileType(name) required}
+//    RecordingTechnology to FileByTechnology{technology(name) required}
+//}
 
 entity FileType (FILE_TYPE) {
 	name String required
@@ -41,10 +42,10 @@ entity Batch {
     modifiedDate LocalDate
 }
 
-relationship ManyToOne {
-	Batch{user} to User
-    Batch{technology} to RecordingTechnology
-  }
+//relationship ManyToOne {
+//	Batch{user} to User
+ //   Batch{technology} to RecordingTechnology
+ // }
 
 enum BatchStatus {
 	OPEN,
@@ -53,10 +54,10 @@ enum BatchStatus {
     CANCELLED
 }
 
-relationship OneToMany {
-    Batch to UploadedFile
-    Batch to InvalidationRule
-}
+//relationship OneToMany {
+//    Batch to UploadedFile
+//    Batch to InvalidationRule
+//}
 
 
 entity UploadedFile {
@@ -68,9 +69,9 @@ entity UploadedFile {
     submittedDate Instant
 }
 
-relationship ManyToOne {
-	UploadedFile to FileType
-}
+//relationship ManyToOne {
+//	UploadedFile to FileType
+//}
 
 enum FileStatus {
 	UPLOADED,
@@ -99,9 +100,9 @@ entity InvalidationCode {
     updatedDate LocalDate
 }
 
-relationship OneToMany {
-    InvalidationRule to InvalidationCode
-   }
+//relationship OneToMany {
+//    InvalidationRule to InvalidationCode
+//   }
 
 
 /**
@@ -126,16 +127,16 @@ enum UserRole {
 }
 
 
-paginate Batch with infinite-scroll
-paginate InvalidationRule with infinite-scroll
-paginate FileType with pager
+//paginate Batch with infinite-scroll
+//paginate InvalidationRule with infinite-scroll
+//paginate FileType with pager
 
 //Set service options to all except few
-service Batch with serviceClass
-service UploadedFile with serviceClass
-service InvalidationRule with serviceClass
+//service Batch with serviceClass
+//service UploadedFile with serviceClass
+//service InvalidationRule with serviceClass
 
-filter *
+//filter *
 
 #arrowSize: 0.6
 #bendSize: 0.3

@@ -50,26 +50,13 @@
             "fieldType": "LocalDate"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "invalidationCode",
-            "otherEntityName": "invalidationCode",
-            "otherEntityRelationshipName": "invalidationRule"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "batch",
-            "otherEntityName": "batch",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20180915031116",
     "entityTableName": "invalidation_rule",
     "dto": "no",
-    "pagination": "infinite-scroll",
-    "service": "serviceClass",
-    "jpaMetamodelFiltering": true,
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*"

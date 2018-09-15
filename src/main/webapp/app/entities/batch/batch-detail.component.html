@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="batch">
+            <h2><span>Batch</span> {{batch.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Initiated Date</span></dt>
+                <dd>
+                    <span>{{batch.initiatedDate}}</span>
+                </dd>
+                <dt><span>Username</span></dt>
+                <dd>
+                    <span>{{batch.username}}</span>
+                </dd>
+                <dt><span>Comment</span></dt>
+                <dd>
+                    <span>{{batch.comment}}</span>
+                </dd>
+                <dt><span>Train Identifier</span></dt>
+                <dd>
+                    <span>{{batch.trainIdentifier}}</span>
+                </dd>
+                <dt><span>Journey</span></dt>
+                <dd>
+                    <span>{{batch.journey}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{batch.status}}</span>
+                </dd>
+                <dt><span>Modified Date</span></dt>
+                <dd>
+                    <span>{{batch.modifiedDate}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/batch', batch.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

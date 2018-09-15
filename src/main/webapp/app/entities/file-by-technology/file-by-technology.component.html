@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span>File By Technologies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-file-by-technology" [routerLink]="['/file-by-technology/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new File By Technology
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="fileByTechnologies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Overriding Pattern</span></th>
+            <th><span>Sort Order</span></th>
+            <th><span>Required</span></th>
+            <th><span>Active</span></th>
+            <th><span>Create Date</span></th>
+            <th><span>Updated Date</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fileByTechnology of fileByTechnologies ;trackBy: trackId">
+                <td><a [routerLink]="['/file-by-technology', fileByTechnology.id, 'view' ]">{{fileByTechnology.id}}</a></td>
+                <td>{{fileByTechnology.overridingPattern}}</td>
+                <td>{{fileByTechnology.sortOrder}}</td>
+                <td>{{fileByTechnology.required}}</td>
+                <td>{{fileByTechnology.active}}</td>
+                <td>{{fileByTechnology.createDate | date:'mediumDate'}}</td>
+                <td>{{fileByTechnology.updatedDate | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/file-by-technology', fileByTechnology.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/file-by-technology', fileByTechnology.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'file-by-technology/'+ fileByTechnology.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
