@@ -50,6 +50,20 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fileType">File Type</label>
+                    <select class="form-control" id="field_fileType" name="fileType" [(ngModel)]="fileByTechnology.fileType" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fileTypeOption.id === fileByTechnology.fileType?.id ? fileByTechnology.fileType : fileTypeOption" *ngFor="let fileTypeOption of filetypes; trackBy: trackFileTypeById">{{fileTypeOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_technology">Technology</label>
+                    <select class="form-control" id="field_technology" name="technology" [(ngModel)]="fileByTechnology.technology" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recordingTechnologyOption.id === fileByTechnology.technology?.id ? fileByTechnology.technology : recordingTechnologyOption" *ngFor="let recordingTechnologyOption of recordingtechnologies; trackBy: trackRecordingTechnologyById">{{recordingTechnologyOption.name}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

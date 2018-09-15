@@ -29,6 +29,18 @@
                 <dd>
                     <span>{{fileByTechnology.updatedDate}}</span>
                 </dd>
+                <dt><span>File Type</span></dt>
+                <dd>
+                    <div *ngIf="fileByTechnology.fileType">
+                        <a [routerLink]="['/file-type', fileByTechnology.fileType?.id, 'view']">{{fileByTechnology.fileType?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Technology</span></dt>
+                <dd>
+                    <div *ngIf="fileByTechnology.technology">
+                        <a [routerLink]="['/recording-technology', fileByTechnology.technology?.id, 'view']">{{fileByTechnology.technology?.name}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

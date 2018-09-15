@@ -21,6 +21,8 @@
             <th><span>Active</span></th>
             <th><span>Create Date</span></th>
             <th><span>Updated Date</span></th>
+            <th><span>File Type</span></th>
+            <th><span>Technology</span></th>
             <th></th>
             </tr>
             </thead>
@@ -33,6 +35,16 @@
                 <td>{{fileByTechnology.active}}</td>
                 <td>{{fileByTechnology.createDate | date:'mediumDate'}}</td>
                 <td>{{fileByTechnology.updatedDate | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="fileByTechnology.fileType">
+                        <a [routerLink]="['../file-type', fileByTechnology.fileType?.id, 'view' ]" >{{fileByTechnology.fileType?.name}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="fileByTechnology.technology">
+                        <a [routerLink]="['../recording-technology', fileByTechnology.technology?.id, 'view' ]" >{{fileByTechnology.technology?.name}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -46,6 +46,14 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="file_type_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="technology_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

@@ -1,5 +1,6 @@
 package com.sys_integrator.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -40,6 +41,14 @@ public class FileByTechnology implements Serializable {
 
     @Column(name = "updated_date")
     private LocalDate updatedDate;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private FileType fileType;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private RecordingTechnology technology;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -126,6 +135,32 @@ public class FileByTechnology implements Serializable {
 
     public void setUpdatedDate(LocalDate updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public FileType getFileType() {
+        return fileType;
+    }
+
+    public FileByTechnology fileType(FileType fileType) {
+        this.fileType = fileType;
+        return this;
+    }
+
+    public void setFileType(FileType fileType) {
+        this.fileType = fileType;
+    }
+
+    public RecordingTechnology getTechnology() {
+        return technology;
+    }
+
+    public FileByTechnology technology(RecordingTechnology recordingTechnology) {
+        this.technology = recordingTechnology;
+        return this;
+    }
+
+    public void setTechnology(RecordingTechnology recordingTechnology) {
+        this.technology = recordingTechnology;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
